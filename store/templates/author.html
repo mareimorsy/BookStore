@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="panel panel-default pnl-fnt">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <center>
+            <img src="/{{ author.pic }}" height="360">
+          </center>
+          
+        </div>
+
+        <div class="col-sm-6">
+          <div class="new-line">
+            <b>Name</b> : {{ author.name }}
+          </div>
+
+          <div class="new-line">
+            <b>Biography</b> : <p>{{ author.bio }}</p>
+          </div>
+          
+          
+          <div class="new-line">
+            <b>Date of Birth </b> : {{ author.DOB }}
+          </div>
+
+          {% if author.DOD %}
+          <div class="new-line">
+            <b>Date of Death </b> : {{ author.DOD }}
+          </div>
+          {% endif %}
+
+          <div class="new-line">
+            <b>Country </b> : {{ author.country }}
+          </div>
+          
+          <div class="new-line">
+            <b>Books</b> : 
+
+            {% for book in books %}
+              
+              {% if forloop.last %}
+                  <a href="/book/{{ book.id }}"> {{ book }}. </a>
+              {% else %}
+                  <a href="/book/{{ book.id }}"> {{ book }}, </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+
+
+
+          {% if show_follow %}
+            <form method="post">
+              {% csrf_token %}
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon glyphicon-heart heart" aria-hidden="true"></span> 
+                Follow
+              </button>
+            </form>
+          {% else %}
+            <form method="post">
+              {% csrf_token %}
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon glyphicon-heart cold" aria-hidden="true"></span> 
+                Unfollow
+              </button>
+            </form>
+          {% endif %}
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% include "base.html" %}
+
+{% block header %}{% endblock header %}
+
+{% block content %}
+  <h2 class="text-center">Edit</h2>
+  <div class="panel panel-default pnl-fnt auth-pnl">
+  <div class="panel-body">
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {% if field.auto_id != 'id_password' %}
+            {{ field.label_tag }}<br>
+            {{ field }}
+        {% elif field.auto_id == 'id_password' %}
+
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+
+    <button id="login-btn" class="btn btn-primary" type="submit">Change Settings</button>
+  </form>
+</div>
+</div>
+
+<div class="text-center">
+  <a href="/updateUserPassword">Click here To Change Password</a>
+</div>
+
+{% endblock %}

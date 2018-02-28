@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="panel panel-default pnl-fnt">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <center>
+            <img src="/{{ category.pic }}" width="100%">
+          </center>
+          
+        </div>
+
+        <div class="col-sm-6">
+          <div class="new-line">
+            <b>Name</b> : {{ category.title }}
+          </div>
+
+          <div class="new-line">
+            <b>Description</b> : <p>{{ category.description }}</p>
+          </div>
+
+          {% if show_follow %}
+            <form method="post">
+              {% csrf_token %}
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon glyphicon-heart heart" aria-hidden="true"></span> 
+                Favourie
+              </button>
+            </form>
+          {% else %}
+            <form method="post">
+              {% csrf_token %}
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon glyphicon-heart cold" aria-hidden="true"></span> 
+                Unfavourie
+              </button>
+            </form>
+          {% endif %}
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Category Books</h3>
+
+  <div class="row text-center"> 
+    {% for book in books %}
+    <!-- book column -->
+    <div class="book-box col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="book-wrapper">
+            <img class="img-responsive" src="/{{ book.pic }}" alt="{{ book.title }}">
+              <a href="/book/{{ book.id }}" class="book-link cover boxcaption">
+                <h3>{{ book.title }}</h3>
+                <p>{{ book.description }}</p>
+              </a>
+        </div>
+    </div>
+    {% empty %}
+      <h3>No books Found!</h3>
+    {% endfor %}
+  </div>
+
+{% endblock %}

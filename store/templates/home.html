@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+
+
+{% block overlay %}
+<div class="jumbotron">
+    <div class="overlay">
+        <h2 class="welcome">The world's largest independent Bookstore</h2>
+        <p class="lead">Enjoy our exclusive books and 100,000+ books for <b>FREE!</b>. </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <!-- Main Part -->
+  <div class="col-md-9">
+ 
+      <h3 class="col-xs-12">Top rated books</h3>  
+      {% for book in topRatedBooks %}
+        <!-- book column -->
+        <div class="book-box col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="book-wrapper">
+                <img class="img-responsive" src="/{{ book.pic }}" alt="{{book.name}}">
+                  <a href="/book/{{ book.id }}" class="book-link cover boxcaption">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.description }}</p>
+                  </a>
+            </div>
+        </div>
+      {% empty %}
+        <div>No books available</div>
+      {% endfor %}
+
+
+
+      
+<h3 class="col-xs-12">Most Followed authors</h3>  
+      {% for author in topFollowedAuthors %}
+        <!-- book column -->
+        <div class="book-box col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="book-wrapper">
+                <img class="img-responsive" src="/{{ author.pic }}" alt="{{author.name}}">
+                  <a href="/author/{{ author.id }}" class="book-link cover boxcaption">
+                    <h3>{{ author.name }}</h3>
+                    <p>{{ author.bio }}</p>
+                  </a>
+            </div>
+        </div>
+      {% empty %}
+        <div>No authors available</div>
+      {% endfor %}
+
+    
+  </div>
+
+  <!-- Sidebar -->
+  <div class="col-md-3">
+
+    <!-- Categories -->
+    <div class="panel panel-info">
+      <div class="panel-heading">Categories</div>
+
+        <div class="list-group">
+          {% for category in categories %}
+          <a href="/category/{{ category.id }}" class="list-group-item">{{ category.title}}</a>
+          {% empty %}
+            <div>No categorys available</div>
+          {% endfor %}
+        </div>
+    </div>
+
+    <!-- My Wish list -->
+    <div class="panel panel-info">
+      <div class="panel-heading">My Wish List</div>
+
+        <div class="list-group">
+          {% for userWish in userWishs %}
+          <a href="/book/{{ userWish.id }}" class="list-group-item">{{ userWish.title}}</a>
+          {% empty %}
+            <div>There's no books on your wish list</div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+    <!-- My Read list -->
+    <div class="panel panel-info">
+      <div class="panel-heading">My Read List</div>
+
+        <div class="list-group">
+          {% for userBook in userBooks %}
+          <a href="/book/{{ userBook.id }}" class="list-group-item">{{ userBook.title}}</a>
+          {% empty %}
+            <div>No books on your read list</div>
+          {% endfor %}
+        </div>
+    </div>
+
+    <!-- My Favourite Categories -->
+    <div class="panel panel-info">
+      <div class="panel-heading">My Favourite Categories</div>
+
+        <div class="list-group">
+          {% for userCategory in userCategories %}
+          <a href="/category/{{ category.id }}" class="list-group-item">{{ userCategory.title}}</a>
+          {% empty %}
+            <span>No categories on your favourite list</span>
+          {% endfor %}
+        </div>
+    </div>
+
+  </div>
+</div> 
+
+
+{% endblock %}

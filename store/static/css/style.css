@@ -1,0 +1,227 @@
+html{
+	position: relative;
+	min-height: 100%;
+}
+
+body{
+	background-color: #eee;
+    padding-top: 51px;
+    padding-bottom: 51px;
+}
+
+/* Start navbar */
+
+.navbar-default {
+    background-color: #fff;
+    border-color: #fff;
+    border-radius: 0;
+    margin-bottom: 0;
+ }
+
+ .navbar-nav>li>a {
+     padding-top: 26px;
+     padding-bottom: 26px;
+ }
+
+ .navbar-default .navbar-nav>li>a{
+ 	color: rgb(106, 106, 106);
+ 	font-weight: bold;
+ }
+
+ .navbar-default .navbar-nav>.active>a,
+ .navbar-default .navbar-nav>.active>a:focus{
+ 	color: rgb(3, 144, 234);
+ 	background-color: #fff;
+ }
+
+.navbar-default .navbar-nav > li > a:hover{
+    color: #f39c12;
+
+ }
+
+.navbar>.container .navbar-brand,
+.navbar>.container-fluid .navbar-brand{
+ 	padding-top: 10px;
+ 	padding-bottom: 0;
+ 	padding-right: 50px;
+ }
+ .navbar-brand img{
+ 	height: 48px;
+ }
+ /* End navbar */
+
+
+ /* Start Search Input */
+ .stylish-input-group .input-group-addon{
+     background: white !important; 
+ }
+ .stylish-input-group .form-control{
+     border-right:0; 
+     box-shadow:0 0 0; 
+     border-color:#ccc;
+ }
+ .stylish-input-group button{
+     border:0;
+     background:transparent;
+ }
+
+ #search-input, .search-btn{
+     border-radius: unset;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-bottom: 1px solid rgb(3, 144, 234);
+ }
+
+ .search-btn{
+     color: rgb(3, 144, 234);
+ }
+
+ .stylish-input-group{
+ max-width: 180px;
+ margin-top: 10px;
+ }
+ /* End Search Input */
+
+
+
+ /* Cover */
+.jumbotron {
+    padding: 0;
+    margin: 0;
+    background-image: url(../imgs/library.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 570px;
+    background-position: 50% 50%;
+}
+
+/* cover overlay */
+.overlay {
+    background: rgba(0,0,0,0.55);
+    height: 100%;
+    width: 100%;
+}
+
+/* cover h2 caption */
+.welcome {
+    margin: 0 auto;
+    padding-top: 250px;
+    padding-bottom: 40px;
+    text-align: center;
+    color: #eee;
+}
+
+.overlay p {
+    text-align: center;
+    color: #eee;
+}
+
+/* End Cover */
+
+.books-container {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.book-box {
+    margin-bottom: 30px;
+    height: 100%;
+    overflow: hidden;
+    padding-right: 0;
+    padding-left: 0;
+}
+.book-wrapper {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.book-wrapper img {
+    width: 100%;
+    max-height: 360px;
+    height: 360px;
+}
+
+/* heading and paragraph inside book-box */
+.book-wrapper p {
+    text-align: justify;
+}
+.book-wrapper h3 {
+    line-height: 33px;
+}
+
+.boxcaption {
+    color: #fff;
+    text-align: center;
+    float: right;
+    position: absolute;
+    background: #000;
+    width: calc(100% - 31px);
+    height: 100%;
+    opacity: .8;
+    top: calc(100% - 61px);
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.book-link{
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+.book-link:hover, .book-link:visited, .book-link:active, .book-link:focus{
+    text-decoration: none;
+    color: #fff;
+}
+
+.heart{
+    color: #fb5d7a;
+}
+.mark{
+    color: #337ab7;
+}
+.btns{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.pnl-fnt{
+    font-size: 20px;
+}
+.new-line{
+    margin-bottom: 15px;
+}
+
+.new-line p{
+    text-align: justify;
+}
+
+
+/* sticky footer */
+footer {
+    border-top: 1px solid #ccc;
+    background-color: #f7f7f7;
+    /*color: #fff;*/
+    /*color: */
+    border-top: 1px solid red;
+    line-height: 50px;
+}
+
+.glyphicon-star:hover{
+    color: yellow;
+}
+
+.cold{
+    color: #337ab7;
+}
+
+#login-btn{
+    margin-top: 30px;
+}
+
+.auth-pnl{
+    max-width: 530px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
